@@ -6,8 +6,8 @@ import Image from "next/image";
 
 export default function ReconLogs() {
   return (
-    <section className="bg-dark-red text-white py-16 md:py-24">
-      <div className="container mx-auto px-4 md:px-6">
+    <section className="bg-dark-red text-white py-16 md:py-24 px-4">
+      <div className="container mx-auto">
         {/* V3 Badge - Left Corner */}
         <div className="mb-6">
           <span className="bg-red-primary text-white text-xs font-mono px-3 py-1 inline-block">V3</span>
@@ -36,7 +36,7 @@ export default function ReconLogs() {
             
             <div className="absolute top-4 right-4 bg-black/70 text-white text-xs font-mono px-2 py-1 z-10">01</div>
             <Image
-              src="/images/recon-1.jpg"
+              src="/recon_logs/img1.jpg"
               alt="DevDay 25 Event"
               fill
               className="object-cover"
@@ -55,7 +55,7 @@ export default function ReconLogs() {
               
               <div className="absolute top-4 right-4 bg-black/70 text-white text-xs font-mono px-2 py-1 z-10">02</div>
               <Image
-                src="/images/recon-2.jpg"
+                src="/recon_logs/img2.jpg"
                 alt="DevDay 25 Event"
                 fill
                 className="object-cover"
@@ -69,7 +69,7 @@ export default function ReconLogs() {
               
               <div className="absolute top-4 right-2 bg-black/70 text-white text-xs font-mono px-2 py-1 z-10">03</div>
               <Image
-                src="/images/recon-3.jpg"
+                src="/recon_logs/img3.jpg"
                 alt="DevDay 25 Event"
                 fill
                 className="object-cover"

@@ -8,6 +8,7 @@ import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
 import AppNavbar from "@/components/global/navbar";
 import Footer from "@/components/global/footer";
+import SplashProvider from "@/components/SplashProvider";
 
 export const metadata: Metadata = {
   title: {
@@ -41,15 +42,17 @@ export default function RootLayout({
           fontSans.variable,
         )}
       >
-        <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-          <div className="relative flex flex-col min-h-screen">
-            <AppNavbar />
-            <main className="flex-grow">
-              {children}
-            </main>
-            <Footer />
-          </div>
-        </Providers>
+        <SplashProvider>
+          <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
+            <div className="relative flex flex-col min-h-screen">
+              <AppNavbar />
+              <main className="flex-grow">
+                {children}
+              </main>
+              <Footer />
+            </div>
+          </Providers>
+        </SplashProvider>
       </body>
     </html>
   );

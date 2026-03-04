@@ -9,17 +9,17 @@ import RotatingIcon from "./rotating-icon";
 
 export default function Hero() {
     return (
-        <section className="relative min-h-[calc(100vh-64px)] bg-dark-red text-white py-8 md:py-16">
-            <div className="container mx-auto px-4 md:px-6">
+        <section className="relative min-h-[calc(100vh-64px)] bg-dark-red text-white py-8 md:py-16 px-4">
+            <div className="mx-auto w-full max-w-[80%]">
                 {/* Version Badge - Outside the grid */}
-                <div className="inline-block border-2 border-red-500 px-4 py-2 mb-4">
-                    <p className="text-red-500 text-xs md:text-sm font-mono tracking-wider">
+                <div className="inline-block border-2 border-[#D71D22] bg-[#D71D22]/15 px-4 py-2 mb-4">
+                    <p className="text-[#D71D22] text-xs md:text-sm font-mono tracking-wider">
                         SYSTEM_READY:_VERSION_20.26
                     </p>
                 </div>
 
                 {/* Main Content Grid - Same Height Columns */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
                     {/* Left Content */}
                     <div className="flex flex-col justify-between">
                         <div>

@@ -62,8 +62,8 @@ export default function Testimonials() {
   }, []);
 
   return (
-    <section className="bg-dark-red-2 text-white py-16 md:py-24 overflow-hidden">
-      <div className="container mx-auto px-4 md:px-6">
+    <section className="bg-dark-red-2 text-white py-16 md:py-24 overflow-hidden px-4">
+      <div className="container mx-auto">
         {/* Header */}
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">TESTIMONIALS</h2>
@@ -75,7 +75,7 @@ export default function Testimonials() {
       </div>
 
       {/* Scrolling Testimonials */}
-      <div ref={scrollRef} className="flex gap-6 overflow-x-hidden px-4 md:px-6">
+      <div ref={scrollRef} className="flex gap-6 overflow-x-hidden">
         {/* Duplicate testimonials for infinite scroll effect */}
         {[...testimonials, ...testimonials].map((testimonial, index) => (
           <TestimonialCard key={index} {...testimonial} />

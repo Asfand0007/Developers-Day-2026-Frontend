@@ -6,8 +6,8 @@ import Image from "next/image";
 
 export default function AboutUs() {
   return (
-    <section className="bg-dark-red text-white py-16 md:py-24">
-      <div className="container mx-auto px-4 md:px-6">
+    <section className="bg-dark-red text-white py-16 md:py-24 px-4">
+      <div className="container mx-auto">
         {/* Header with Red Line */}
         <div className="flex gap-4 mb-12 md:mb-16">
           <div className="w-1 bg-red-primary flex-shrink-0" />

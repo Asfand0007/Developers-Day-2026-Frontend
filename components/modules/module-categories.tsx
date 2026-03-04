@@ -40,8 +40,8 @@ export default function ModuleCategories() {
   ];
 
   return (
-    <section className="bg-dark-red text-white py-16 md:py-24">
-      <div className="container mx-auto px-4 md:px-6">
+    <section className="bg-dark-red text-white py-16 md:py-24 px-4">
+      <div className="container mx-auto">
         {/* Header */}
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">MODULE_CATEGORIES</h2>
