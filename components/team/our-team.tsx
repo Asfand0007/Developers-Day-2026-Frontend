@@ -92,8 +92,15 @@ const teamMembers = [
   isMiddle: member.image.endsWith("/President.png"),
 }));
 
-const president = teamMembers.find(member => member.isMiddle);
-const otherMembers = teamMembers.filter(member => !member.isMiddle);
+const topLeaders = teamMembers.filter(member =>
+  member.image.endsWith("/President.png") ||
+  member.image.endsWith("/Vice_President.png")
+);
+
+const otherMembers = teamMembers.filter(member =>
+  !member.image.endsWith("/President.png") &&
+  !member.image.endsWith("/Vice_President.png")
+);
 
 export default function OurTeam() {
   return (
@@ -138,13 +145,24 @@ export default function OurTeam() {
             ))}
           </div> */}
         {/* PRESIDENT ROW (always centered single card) */}
-        {president && (
-          <div className="flex justify-center mb-10">
-            <div className="w-full md:w-1/2  lg:w-1/3">
-              <TeamCard {...president} />
-            </div>
-          </div>
-        )}
+        {/* PRESIDENT + VICE PRESIDENT */}
+        <div className="flex justify-center gap-6 lg:gap-8 mb-12 flex-wrap">
+          {topLeaders.map((member, index) => (
+            <motion.div
+              key={member.role}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{
+                duration: 0.6,
+                delay: index * 0.1,
+              }}
+              className="w-full md:w-1/2 lg:w-1/3"
+            >
+              <TeamCard {...member} />
+            </motion.div>
+          ))}
+        </div>
 
         {/* OTHER MEMBERS GRID */}
         <div className="grid w-full grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
