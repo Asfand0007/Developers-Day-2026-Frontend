@@ -43,11 +43,6 @@ export default function SplashProvider({
     }
   }, [pathname]);
 
-  useEffect(() => {
-    if (typeof document === "undefined") return;
-    document.body.style.overflow = showSplash ? "hidden" : "auto";
-  }, [showSplash]);
-
   return (
     <>
       {showOverlay && (

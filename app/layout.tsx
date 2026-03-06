@@ -9,6 +9,7 @@ import { fontSans } from "@/config/fonts";
 import AppNavbar from "@/components/global/navbar";
 import Footer from "@/components/global/footer";
 import SplashProvider from "@/components/SplashProvider";
+import SmoothScroll from "@/components/SmoothScroll";
 
 export const metadata: Metadata = {
   title: {
@@ -44,13 +45,15 @@ export default function RootLayout({
       >
         <SplashProvider>
           <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-            <div className="relative flex flex-col min-h-screen">
-              <AppNavbar />
-              <main className="flex-grow">
-                {children}
-              </main>
-              <Footer />
-            </div>
+            <SmoothScroll>
+              <div className="relative flex flex-col min-h-screen">
+                <AppNavbar />
+                <main className="flex-grow">
+                  {children}
+                </main>
+                <Footer />
+              </div>
+            </SmoothScroll>
           </Providers>
         </SplashProvider>
       </body>
