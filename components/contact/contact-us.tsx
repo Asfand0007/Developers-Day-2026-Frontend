@@ -29,8 +29,8 @@ export default function ContactUs() {
       label: "CALL NOW:",
     },
     {
-      category: "PARTICIPANT_RELATIONS",
-      name: "NOMEER AHSAN",
+      category: "PUBLIC_RELATIONS",
+      name: "UMAIMA FATIMA",
       phone: "+92 3171008949",
       label: "CALL NOW:",
     },
