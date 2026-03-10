@@ -70,8 +70,8 @@ const modules = [
     icon: "/icons/business.svg",
     title: "BUSINESS_COMPETITIONS",
     description: "Strategy, entrepreneurship and business case competitions.",
-    color: "#F59E0B",
-    bgColor: "#000613",
+    color: "#D000FF",
+    bgColor: "#0B000E",
   },
 ];
 

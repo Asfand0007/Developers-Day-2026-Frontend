@@ -143,7 +143,7 @@ export default function ReconLogs() {
             Status: Archived
           </span>
           <div className="flex gap-4">
-            <Button
+            {/* <Button
               as={Link}
               className="bg-transparent text-red-primary hover:text-red-700 font-mono text-sm"
               href="#"
@@ -158,7 +158,7 @@ export default function ReconLogs() {
               radius="none"
             >
               NEXT_LINK →
-            </Button>
+            </Button> */}
           </div>
         </motion.div>
       </div>

@@ -32,7 +32,7 @@ export default function Hero() {
       </div>
 
       {/* Mobile Background Left */}
-      <div className="absolute inset-y-0 left-0 w-1/2 md:hidden opacity-50">
+      <div className="absolute inset-y-0 left-0 w-1/2 md:hidden opacity-70">
         <Image
           fill
           priority
@@ -43,7 +43,7 @@ export default function Hero() {
       </div>
 
       {/* Mobile Background Right */}
-      <div className="absolute inset-y-0 right-0 w-1/2 md:hidden opacity-50">
+      <div className="absolute inset-y-0 right-0 w-1/2 md:hidden opacity-70">
         <Image
           fill
           priority

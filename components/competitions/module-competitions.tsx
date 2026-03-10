@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import competitionData from "./competition-data";
 import {
   CpuChipIcon,
   CircleStackIcon,
@@ -15,106 +16,13 @@ import {
 
 import CompetitionCard from "./competition-card";
 
-const CODE_ICON = (
-  <span className="font-mono font-bold text-lg leading-none">{"< >"}</span>
-);
-const BOLT_ICON = <BoltIcon className="w-5 h-5" />;
-
-const competitions = [
-  {
-    title: "COMPETITIVE\nPROGRAMMING",
-    titleIcon: CODE_ICON,
-    image: "/competitions/competitive.jpg",
-    description:
-      "Engage in rigorous problem-solving battles focusing on optimal algorithms and data structures. Prove your mastery in timed individual rounds.",
-    features: [
-      {
-        icon: <CpuChipIcon className="w-4 h-4" />,
-        label: "ALGORITHMS",
-        sublabel: "Complex problem solving",
-      },
-      {
-        icon: <CircleStackIcon className="w-4 h-4" />,
-        label: "DATA STRUCTURES",
-        sublabel: "Efficient implementation",
-      },
-      {
-        icon: <ClockIcon className="w-4 h-4" />,
-        label: "TIMED ROUNDS",
-        sublabel: "Strict limits",
-      },
-      {
-        icon: <UserIcon className="w-4 h-4" />,
-        label: "INDIVIDUAL",
-        sublabel: "Solo prowess",
-      },
-    ],
-    variant: "filled" as const,
-    registerHref: "/register",
-  },
-  {
-    title: "CODE\nSPRINT",
-    titleIcon: BOLT_ICON,
-    image: "/competitions/competitive.jpg",
-    description:
-      "A high-intensity format where speed meets accuracy. Survive elimination rounds of increasing difficulty to claim victory.",
-    features: [
-      {
-        icon: <XCircleIcon className="w-4 h-4" />,
-        label: "ELIMINATION",
-        sublabel: "Survival mode",
-      },
-      {
-        icon: <FireIcon className="w-4 h-4" />,
-        label: "DIFFICULTY",
-        sublabel: "Escalating challenge",
-      },
-      {
-        icon: <BoltIcon className="w-4 h-4" />,
-        label: "VELOCITY",
-        sublabel: "Speed + Accuracy",
-      },
-      {
-        icon: <SignalIcon className="w-4 h-4" />,
-        label: "INTENSITY",
-        sublabel: "High pressure",
-      },
-    ],
-    variant: "outline" as const,
-    registerHref: "/register",
-  },
-  {
-    title: "COMPETITIVE\nPROGRAMMING",
-    titleIcon: CODE_ICON,
-    image: "/competitions/competitive.jpg",
-    description:
-      "Engage in rigorous problem-solving battles focusing on optimal algorithms and data structures. Prove your mastery in timed individual rounds.",
-    features: [
-      {
-        icon: <CpuChipIcon className="w-4 h-4" />,
-        label: "ALGORITHMS",
-        sublabel: "Complex problem solving",
-      },
-      {
-        icon: <CircleStackIcon className="w-4 h-4" />,
-        label: "DATA STRUCTURES",
-        sublabel: "Efficient implementation",
-      },
-      {
-        icon: <ClockIcon className="w-4 h-4" />,
-        label: "TIMED ROUNDS",
-        sublabel: "Strict limits",
-      },
-      {
-        icon: <UserIcon className="w-4 h-4" />,
-        label: "INDIVIDUAL",
-        sublabel: "Solo prowess",
-      },
-    ],
-    variant: "filled" as const,
-    registerHref: "/register",
-  },
-];
+type Competition = {
+  name: string;
+  description: string;
+  teamCount: string;
+  earlyBirdPrice: number;
+  normalPrice: number;
+};
 
 /* ── animation variants ── */
 const containerVariants = {
@@ -150,6 +58,7 @@ export default function ModuleCompetitions({
   color,
   bgColor,
 }: ModuleCompetitionsProps) {
+  const competitions = competitionData[id as keyof typeof competitionData] || [];
   return (
     <section
       className="bg-[var(--bg-color)] text-white py-16 md:py-24 px-4"
@@ -229,9 +138,15 @@ export default function ModuleCompetitions({
           initial="hidden"
           variants={containerVariants}
         >
-          {competitions.map((comp, idx) => (
-            <motion.div key={comp.title + idx} variants={cardVariants}>
-              <CompetitionCard {...comp} />
+        {competitions.map((comp: Competition, idx:number) => (
+            <motion.div key={comp.name + idx} variants={cardVariants}>
+              <CompetitionCard
+                title={comp.name}
+                description={comp.description}
+                teamCount={comp.teamCount}
+                earlyBirdPrice={comp.earlyBirdPrice}
+                normalPrice={comp.normalPrice}
+              />
             </motion.div>
           ))}
         </motion.div>

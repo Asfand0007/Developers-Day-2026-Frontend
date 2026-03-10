@@ -149,14 +149,14 @@ export default function ModuleCategories() {
           viewport={{ once: true, margin: "-60px" }}
           whileInView={{ opacity: 1, y: 0 }}
         >
-          <Button
+          {/* <Button
             as={Link}
             className="bg-red-primary hover:bg-red-700 text-white font-bold px-6 py-3"
             href="/modules"
             radius="none"
           >
             VISIT:_ALL_MODULES
-          </Button>
+          </Button> */}
           <div className="flex gap-2">
             <div className="w-2 h-2 bg-red-primary rounded-none" />
             <div className="w-2 h-2 bg-red-primary rounded-none" />
