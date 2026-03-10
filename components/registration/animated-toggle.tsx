@@ -14,18 +14,32 @@ export default function AnimatedToggle() {
   }, []);
 
   return (
-    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="1.5" y="15.5" width="45" height="17" rx="8.5" stroke="white" strokeWidth="3" />
+    <svg
+      fill="none"
+      height="48"
+      viewBox="0 0 48 48"
+      width="48"
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <rect
-        x={isToggled ? "32" : "4"}
-        y="18"
-        width="12"
+        height="17"
+        rx="8.5"
+        stroke="white"
+        strokeWidth="3"
+        width="45"
+        x="1.5"
+        y="15.5"
+      />
+      <rect
+        fill="#141413"
         height="12"
         rx="6"
-        fill="#141413"
         style={{
           transition: "x 0.6s cubic-bezier(0.4, 0, 0.2, 1)",
         }}
+        width="12"
+        x={isToggled ? "32" : "4"}
+        y="18"
       />
     </svg>
   );

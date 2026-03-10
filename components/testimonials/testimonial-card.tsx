@@ -10,7 +10,13 @@ interface TestimonialCardProps {
   avatar?: string;
 }
 
-export default function TestimonialCard({ id, name, role, testimonial, avatar }: TestimonialCardProps) {
+export default function TestimonialCard({
+  id,
+  name,
+  role,
+  testimonial,
+  avatar,
+}: TestimonialCardProps) {
   return (
     <div className="relative bg-dark-red p-4 md:p-6 w-[280px] h-[200px] md:w-[380px] md:h-[230px] flex-shrink-0 flex flex-col overflow-hidden">
       {/* Gray corner edges */}
@@ -25,9 +31,19 @@ export default function TestimonialCard({ id, name, role, testimonial, avatar }:
           {/* Avatar */}
           <div className="w-9 h-9 md:w-12 md:h-12 bg-gray-700 flex items-center justify-center flex-shrink-0">
             {avatar ? (
-              <Image src={avatar} alt={name} width={48} height={48} className="object-cover" />
+              <Image
+                alt={name}
+                className="object-cover"
+                height={48}
+                src={avatar}
+                width={48}
+              />
             ) : (
-              <svg className="w-6 h-6 md:w-8 md:h-8 text-gray-500" fill="currentColor" viewBox="0 0 24 24">
+              <svg
+                className="w-6 h-6 md:w-8 md:h-8 text-gray-500"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
                 <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
               </svg>
             )}
@@ -35,20 +51,28 @@ export default function TestimonialCard({ id, name, role, testimonial, avatar }:
 
           {/* Name and Role */}
           <div>
-            <h3 className="text-white text-xs md:text-sm font-bold uppercase">{name}</h3>
-            <p className="text-red-primary text-[10px] md:text-xs font-mono uppercase">{role}</p>
+            <h3 className="text-white text-xs md:text-sm font-bold uppercase">
+              {name}
+            </h3>
+            <p className="text-red-primary text-[10px] md:text-xs font-mono uppercase">
+              {role}
+            </p>
           </div>
         </div>
 
         {/* ID */}
-        <span className="text-gray-600 text-[10px] md:text-xs font-mono">ID: {id}</span>
+        <span className="text-gray-600 text-[10px] md:text-xs font-mono">
+          ID: {id}
+        </span>
       </div>
 
       {/* Divider */}
       <div className="h-px bg-gray-800 mb-3 md:mb-4" />
 
       {/* Testimonial */}
-      <p className="text-gray-400 text-[10px] md:text-xs leading-relaxed flex-1 overflow-hidden">{testimonial}</p>
+      <p className="text-gray-400 text-[10px] md:text-xs leading-relaxed flex-1 overflow-hidden">
+        {testimonial}
+      </p>
 
       {/* Bottom edge accent */}
       <div className="mt-3 md:mt-4 h-1 bg-gray-800" />

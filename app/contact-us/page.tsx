@@ -6,6 +6,6 @@ export default function ContactUsPage() {
     <>
       <ContactUs />
       <RegistrationBanner />
-    </>)
-    ;
+    </>
+  );
 }

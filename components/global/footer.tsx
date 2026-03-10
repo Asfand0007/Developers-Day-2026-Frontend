@@ -60,11 +60,11 @@ export default function Footer() {
             <div className="flex items-center justify-center lg:justify-start gap-3">
               <div className="relative h-9 w-9 sm:h-10 sm:w-10 flex items-center justify-center rounded-sm bg-red-primary/10 border border-red-primary/60">
                 <Image
-                  src="/logo.png"
                   alt="DevDay Logo"
-                  width={36}
-                  height={36}
                   className="object-contain"
+                  height={36}
+                  src="/logo.png"
+                  width={36}
                 />
               </div>
               <div>
@@ -79,9 +79,9 @@ export default function Footer() {
 
             {/* Description */}
             <p className="text-gray-400 text-xs sm:text-sm leading-relaxed max-w-xl text-center lg:text-left mx-auto lg:mx-0">
-              DevDay&apos;26 is a high-intensity, developer-first competition where
-              teams design, build, and ship under pressure — spanning software,
-              hardware, and AI modules.
+              DevDay&apos;26 is a high-intensity, developer-first competition
+              where teams design, build, and ship under pressure — spanning
+              software, hardware, and AI modules.
             </p>
 
             {/* Nav + social */}
@@ -90,8 +90,8 @@ export default function Footer() {
                 {footerLinks.map((link) => (
                   <Link
                     key={link.name}
-                    href={link.href}
                     className="text-gray-400 hover:text-white transition-colors text-xs sm:text-[0.8rem] font-mono tracking-[0.12em]"
+                    href={link.href}
                   >
                     {link.name}
                   </Link>
@@ -102,9 +102,9 @@ export default function Footer() {
                 {socialLinks.map((social) => (
                   <Link
                     key={social.name}
-                    href={social.href}
-                    className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-gray-800 text-gray-400 hover:text-white hover:border-red-primary transition-colors"
                     aria-label={social.name}
+                    className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-gray-800 text-gray-400 hover:text-white hover:border-red-primary transition-colors"
+                    href={social.href}
                   >
                     <svg
                       className="w-4 h-4 sm:w-5 sm:h-5"
@@ -125,7 +125,7 @@ export default function Footer() {
               ABOUT_THE_DEVELOPERS
             </p>
             <div className="space-y-4 text-xs sm:text-sm text-gray-200">
-            <div>
+              <div>
                 <p className="font-mono text-[0.7rem] sm:text-[0.75rem] text-red-primary/80 mb-1 tracking-[0.18em] uppercase">
                   DEVELOPMENT CREW
                 </p>
@@ -134,10 +134,10 @@ export default function Footer() {
                     <span key={dev.name}>
                       {index > 0 && <span className="mx-1">·</span>}
                       <Link
-                        href={dev.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
                         className="underline-offset-4 hover:underline hover:text-red-primary transition-colors text-white"
+                        href={dev.href}
+                        rel="noopener noreferrer"
+                        target="_blank"
                       >
                         {dev.name}
                       </Link>
@@ -145,7 +145,7 @@ export default function Footer() {
                   ))}
                 </p>
               </div>
-            
+
               <div>
                 <p className="font-mono text-[0.7rem] sm:text-[0.75rem] text-red-primary/80 mb-1 tracking-[0.18em] uppercase">
                   DESIGN CREW
@@ -154,7 +154,6 @@ export default function Footer() {
                   Hasan Sami · Asjad Bin Rehan · Sameed Jamal · Wareesha Faheem
                 </p>
               </div>
-              
             </div>
           </div>
         </div>

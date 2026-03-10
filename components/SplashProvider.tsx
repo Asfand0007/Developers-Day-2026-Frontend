@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+
 import SplashScreen from "@/components/SplashScreen";
 
 const SITE_SPLASH_KEY = "devday_site_splash_seen";
@@ -28,8 +29,10 @@ export default function SplashProvider({
   useEffect(() => {
     if (!pathname) return;
 
-    const storageAvailable = typeof window !== "undefined" && typeof sessionStorage !== "undefined";
-    const seen = storageAvailable && sessionStorage.getItem(SITE_SPLASH_KEY) === "1";
+    const storageAvailable =
+      typeof window !== "undefined" && typeof sessionStorage !== "undefined";
+    const seen =
+      storageAvailable && sessionStorage.getItem(SITE_SPLASH_KEY) === "1";
 
     if (seen) {
       setShowSplash(false);
@@ -55,12 +58,11 @@ export default function SplashProvider({
       {children}
       {showSplash && (
         <SplashScreen
+          duration={4000}
           onComplete={handleSplashComplete}
           onFadeOutStart={handleSplashFadeOut}
-          duration={4000}
         />
       )}
     </>
   );
 }
-

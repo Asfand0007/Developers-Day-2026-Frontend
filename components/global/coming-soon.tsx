@@ -12,8 +12,7 @@ interface ComingSoonProps {
 }
 
 const defaultTitle = "COMING_SOON";
-const defaultDescription =
-  "THIS_PAGE_IS_UNDER_CONSTRUCTION._CHECK_BACK_SOON.";
+const defaultDescription = "THIS_PAGE_IS_UNDER_CONSTRUCTION._CHECK_BACK_SOON.";
 
 export default function ComingSoon({
   title = defaultTitle,
@@ -38,8 +37,8 @@ export default function ComingSoon({
 
         <Button
           as={Link}
-          href="/"
           className="bg-red-primary hover:bg-red-700 text-white font-bold"
+          href="/"
           radius="none"
           startContent={<ArrowLeftIcon className="w-5 h-5" />}
         >

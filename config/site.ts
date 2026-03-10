@@ -1,8 +1,8 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: "Developer's Day 2026                                                                                                     ",
-  description: "Developer's Day 2026",
+  name: "Developer's Day",
+  description: "Developer's Day",
   navItems: [
     {
       label: "Home",

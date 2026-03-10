@@ -22,104 +22,105 @@ interface BlockInfoLine {
   location: string;
 }
 
-const BLOCK_INFO: Record<BlockId, { title: string; events: BlockInfoLine[] }> = {
-  ee_block: {
-    title: "EE_BLOCK",
-    events: [
-      { name: "EVENT_1_NAME", location: "EE-101" },
-      { name: "EVENT_2_NAME", location: "EE-109" },
-      { name: "EVENT_3_NAME", location: "LAB-1" },
-      { name: "EVENT_4_NAME", location: "LAB-2" },
-    ],
-  },
-  ee_canteen: {
-    title: "EE_CANTEEN",
-    events: [
-      { name: "EVENT_1_NAME", location: "FOOD_COURT" },
-      { name: "EVENT_2_NAME", location: "TEAM_MEETUP" },
-    ],
-  },
-  ee_lawn: {
-    title: "EE_LAWN",
-    events: [
-      { name: "EVENT_1_NAME", location: "BOOTH_A1" },
-      { name: "EVENT_2_NAME", location: "BOOTH_A2" },
-      { name: "EVENT_3_NAME", location: "CHAIR-ROW_03" },
-    ],
-  },
-  mosque: {
-    title: "MOSQUE",
-    events: [
-      { name: "EVENT_1_NAME", location: "PRAYER_SLOT_1" },
-      { name: "EVENT_2_NAME", location: "PRAYER_SLOT_2" },
-    ],
-  },
-  cs_dhaba: {
-    title: "CS_DHABA",
-    events: [
-      { name: "EVENT_1_NAME", location: "R-109" },
-      { name: "EVENT_2_NAME", location: "LAB-3" },
-      { name: "EVENT_3_NAME", location: "E4" },
-      { name: "EVENT_4_NAME", location: "E2" },
-      { name: "EVENT_5_NAME", location: "E3" },
-      { name: "EVENT_6_NAME", location: "R-108" },
-      { name: "EVENT_7_NAME", location: "FYP LAB" },
-      { name: "EVENT_8_NAME", location: "S2" },
-    ],
-  },
-  entrance_garden: {
-    title: "ENTRANCE_GARDEN",
-    events: [
-      { name: "EVENT_1_NAME", location: "CHECK-IN_DESK" },
-      { name: "EVENT_2_NAME", location: "PHOTO_WALL" },
-    ],
-  },
-  basketball_court: {
-    title: "BASKETBALL_COURT",
-    events: [
-      { name: "EVENT_1_NAME", location: "HALF_COURT" },
-      { name: "EVENT_2_NAME", location: "FULL_COURT" },
-    ],
-  },
-  multipurpose: {
-    title: "MULTIPURPOSE_BLOCK",
-    events: [
-      { name: "EVENT_1_NAME", location: "HALL_A" },
-      { name: "EVENT_2_NAME", location: "HALL_B" },
-      { name: "EVENT_3_NAME", location: "HALL_C" },
-    ],
-  },
-  sports_room: {
-    title: "SPORTS_ROOM",
-    events: [
-      { name: "EVENT_1_NAME", location: "BRIEFING_ROOM" },
-      { name: "EVENT_2_NAME", location: "REFRESH_ZONE" },
-    ],
-  },
-  futsal_court: {
-    title: "FUTSAL_COURT",
-    events: [
-      { name: "EVENT_1_NAME", location: "MATCH_A" },
-      { name: "EVENT_2_NAME", location: "MATCH_B" },
-    ],
-  },
-  cs_lawn: {
-    title: "CS_LAWN",
-    events: [
-      { name: "EVENT_1_NAME", location: "OPEN_AIR_1" },
-      { name: "EVENT_2_NAME", location: "OPEN_AIR_2" },
-    ],
-  },
-  cs_block: {
-    title: "CS_BLOCK",
-    events: [
-      { name: "EVENT_1_NAME", location: "CS-101" },
-      { name: "EVENT_2_NAME", location: "CS-201" },
-      { name: "EVENT_3_NAME", location: "LAB-4" },
-      { name: "EVENT_4_NAME", location: "ARENA" },
-    ],
-  },
-};
+const BLOCK_INFO: Record<BlockId, { title: string; events: BlockInfoLine[] }> =
+  {
+    ee_block: {
+      title: "EE_BLOCK",
+      events: [
+        { name: "EVENT_1_NAME", location: "EE-101" },
+        { name: "EVENT_2_NAME", location: "EE-109" },
+        { name: "EVENT_3_NAME", location: "LAB-1" },
+        { name: "EVENT_4_NAME", location: "LAB-2" },
+      ],
+    },
+    ee_canteen: {
+      title: "EE_CANTEEN",
+      events: [
+        { name: "EVENT_1_NAME", location: "FOOD_COURT" },
+        { name: "EVENT_2_NAME", location: "TEAM_MEETUP" },
+      ],
+    },
+    ee_lawn: {
+      title: "EE_LAWN",
+      events: [
+        { name: "EVENT_1_NAME", location: "BOOTH_A1" },
+        { name: "EVENT_2_NAME", location: "BOOTH_A2" },
+        { name: "EVENT_3_NAME", location: "CHAIR-ROW_03" },
+      ],
+    },
+    mosque: {
+      title: "MOSQUE",
+      events: [
+        { name: "EVENT_1_NAME", location: "PRAYER_SLOT_1" },
+        { name: "EVENT_2_NAME", location: "PRAYER_SLOT_2" },
+      ],
+    },
+    cs_dhaba: {
+      title: "CS_DHABA",
+      events: [
+        { name: "EVENT_1_NAME", location: "R-109" },
+        { name: "EVENT_2_NAME", location: "LAB-3" },
+        { name: "EVENT_3_NAME", location: "E4" },
+        { name: "EVENT_4_NAME", location: "E2" },
+        { name: "EVENT_5_NAME", location: "E3" },
+        { name: "EVENT_6_NAME", location: "R-108" },
+        { name: "EVENT_7_NAME", location: "FYP LAB" },
+        { name: "EVENT_8_NAME", location: "S2" },
+      ],
+    },
+    entrance_garden: {
+      title: "ENTRANCE_GARDEN",
+      events: [
+        { name: "EVENT_1_NAME", location: "CHECK-IN_DESK" },
+        { name: "EVENT_2_NAME", location: "PHOTO_WALL" },
+      ],
+    },
+    basketball_court: {
+      title: "BASKETBALL_COURT",
+      events: [
+        { name: "EVENT_1_NAME", location: "HALF_COURT" },
+        { name: "EVENT_2_NAME", location: "FULL_COURT" },
+      ],
+    },
+    multipurpose: {
+      title: "MULTIPURPOSE_BLOCK",
+      events: [
+        { name: "EVENT_1_NAME", location: "HALL_A" },
+        { name: "EVENT_2_NAME", location: "HALL_B" },
+        { name: "EVENT_3_NAME", location: "HALL_C" },
+      ],
+    },
+    sports_room: {
+      title: "SPORTS_ROOM",
+      events: [
+        { name: "EVENT_1_NAME", location: "BRIEFING_ROOM" },
+        { name: "EVENT_2_NAME", location: "REFRESH_ZONE" },
+      ],
+    },
+    futsal_court: {
+      title: "FUTSAL_COURT",
+      events: [
+        { name: "EVENT_1_NAME", location: "MATCH_A" },
+        { name: "EVENT_2_NAME", location: "MATCH_B" },
+      ],
+    },
+    cs_lawn: {
+      title: "CS_LAWN",
+      events: [
+        { name: "EVENT_1_NAME", location: "OPEN_AIR_1" },
+        { name: "EVENT_2_NAME", location: "OPEN_AIR_2" },
+      ],
+    },
+    cs_block: {
+      title: "CS_BLOCK",
+      events: [
+        { name: "EVENT_1_NAME", location: "CS-101" },
+        { name: "EVENT_2_NAME", location: "CS-201" },
+        { name: "EVENT_3_NAME", location: "LAB-4" },
+        { name: "EVENT_4_NAME", location: "ARENA" },
+      ],
+    },
+  };
 
 const BLOCK_IDS: BlockId[] = [
   "ee_block",
@@ -144,8 +145,9 @@ interface HoveredBlockState {
 
 export default function CampusReservationMap() {
   const [svgMarkup, setSvgMarkup] = useState<string | null>(null);
-  const [hoveredBlock, setHoveredBlock] =
-    useState<HoveredBlockState | null>(null);
+  const [hoveredBlock, setHoveredBlock] = useState<HoveredBlockState | null>(
+    null,
+  );
 
   const mapRef = useRef<HTMLDivElement | null>(null);
 
@@ -156,9 +158,11 @@ export default function CampusReservationMap() {
     const loadSvg = async () => {
       try {
         const response = await fetch("/map_dev.svg");
+
         if (!response.ok) return;
 
         const text = await response.text();
+
         if (isMounted) {
           setSvgMarkup(text);
         }
@@ -184,12 +188,14 @@ export default function CampusReservationMap() {
 
     const handleMouseMove = (e: MouseEvent) => {
       const target = e.target as Element;
+
       if (!target) return;
 
       const blockEl = target.closest(selector) as SVGElement | null;
 
       if (!blockEl) {
         setHoveredBlock(null);
+
         return;
       }
 
@@ -202,6 +208,7 @@ export default function CampusReservationMap() {
 
       setHoveredBlock((prev) => {
         if (prev?.id === id) return prev;
+
         return { id, centerX, top };
       });
     };
@@ -225,11 +232,11 @@ export default function CampusReservationMap() {
     <section className="bg-dark-red text-white py-16 md:py-24 px-4 relative overflow-visible">
       <div className="container mx-auto px-4 md:px-6 relative overflow-visible">
         <motion.div
-          initial={{ opacity: 0, y: 35 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
           className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between mb-8 md:mb-10"
+          initial={{ opacity: 0, y: 35 }}
+          transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
+          viewport={{ once: true, margin: "-80px" }}
+          whileInView={{ opacity: 1, y: 0 }}
         >
           <div className="flex gap-4">
             <div className="w-1 bg-red-primary flex-shrink-0" />
@@ -244,20 +251,20 @@ export default function CampusReservationMap() {
         </motion.div>
 
         <motion.div
-          initial={{ scaleX: 0 }}
-          whileInView={{ scaleX: 1 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
-          style={{ originX: 0 }}
           className="h-0.5 bg-red-primary mb-6 md:mb-8"
+          initial={{ scaleX: 0 }}
+          style={{ originX: 0 }}
+          transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
+          viewport={{ once: true, margin: "-80px" }}
+          whileInView={{ scaleX: 1 }}
         />
 
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.65, delay: 0.15, ease: "easeOut" }}
           className="campus-map overflow-x-hidden overflow-y-visible mt-6 md:mt-10"
+          initial={{ opacity: 0, y: 30 }}
+          transition={{ duration: 0.65, delay: 0.15, ease: "easeOut" }}
+          viewport={{ once: true, margin: "-60px" }}
+          whileInView={{ opacity: 1, y: 0 }}
         >
           {svgMarkup ? (
             <div className="flex justify-center">
@@ -285,9 +292,7 @@ export default function CampusReservationMap() {
                               key={`${event.name}-${event.location}`}
                               className="flex justify-between gap-6"
                             >
-                              <span className="uppercase">
-                                {event.name}
-                              </span>
+                              <span className="uppercase">{event.name}</span>
                               <span>{event.location}</span>
                             </li>
                           ))}
@@ -299,8 +304,8 @@ export default function CampusReservationMap() {
                 )}
 
                 <div
-                  ref={mapRef}
                   dangerouslySetInnerHTML={{ __html: svgMarkup }}
+                  ref={mapRef}
                 />
               </div>
             </div>

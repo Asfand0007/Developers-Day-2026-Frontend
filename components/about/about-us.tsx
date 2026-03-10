@@ -1,11 +1,16 @@
 "use client";
 
-import StatCard from "./stat-card";
 import Image from "next/image";
-import { motion, useInView, useMotionValue, useTransform, animate } from "framer-motion";
+import { motion, useInView, animate } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
-function useCountAnimation(target: number, duration: number = 2, shouldStart: boolean = false) {
+import StatCard from "./stat-card";
+
+function useCountAnimation(
+  target: number,
+  duration: number = 2,
+  shouldStart: boolean = false,
+) {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
@@ -34,12 +39,14 @@ function AnimatedStat({ stat }: { stat: string }) {
   const numericValue = match ? parseInt(match[1], 10) : null;
   const suffix = match ? match[2] : "";
 
-  const count = useCountAnimation(numericValue ?? 0, 2, isInView && numericValue !== null);
+  const count = useCountAnimation(
+    numericValue ?? 0,
+    2,
+    isInView && numericValue !== null,
+  );
 
   return (
-    <span ref={ref}>
-      {numericValue !== null ? `${count}${suffix}` : stat}
-    </span>
+    <span ref={ref}>{numericValue !== null ? `${count}${suffix}` : stat}</span>
   );
 }
 
@@ -50,10 +57,10 @@ export default function AboutUs() {
       title: "PARTICIPANTS",
       icon: (
         <Image
-          src="/icons/participants.svg"
           alt="Participants"
-          width={40}
           height={40}
+          src="/icons/participants.svg"
+          width={40}
         />
       ),
       variant: "red" as const,
@@ -63,10 +70,10 @@ export default function AboutUs() {
       title: "COMPETITION TRACKS",
       icon: (
         <Image
-          src="/icons/competition-tracks.svg"
           alt="Competition Tracks"
-          width={30}
           height={30}
+          src="/icons/competition-tracks.svg"
+          width={30}
         />
       ),
       variant: "dark" as const,
@@ -76,10 +83,10 @@ export default function AboutUs() {
       title: "PARTNER INSTITUTIONS",
       icon: (
         <Image
-          src="/icons/partner.svg"
           alt="Partner Institutions"
-          width={30}
           height={30}
+          src="/icons/partner.svg"
+          width={30}
         />
       ),
       variant: "red" as const,
@@ -89,10 +96,10 @@ export default function AboutUs() {
       title: "YEARS OF LEGACY",
       icon: (
         <Image
-          src="/icons/legacy.svg"
           alt="Years of Legacy"
-          width={30}
           height={30}
+          src="/icons/legacy.svg"
+          width={30}
         />
       ),
       variant: "dark" as const,
@@ -104,11 +111,11 @@ export default function AboutUs() {
       <div className="container mx-auto">
         {/* Header with Red Line */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
           className="flex gap-4 mb-12 md:mb-16"
+          initial={{ opacity: 0, y: 40 }}
+          transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
+          viewport={{ once: true, margin: "-80px" }}
+          whileInView={{ opacity: 1, y: 0 }}
         >
           <div className="w-1 bg-red-primary flex-shrink-0" />
           <div>
@@ -136,18 +143,15 @@ export default function AboutUs() {
             <motion.div
               key={card.title}
               initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
               transition={{
                 duration: 0.6,
                 delay: index * 0.12,
                 ease: [0.25, 0.1, 0.25, 1],
               }}
+              viewport={{ once: true, margin: "-60px" }}
+              whileInView={{ opacity: 1, y: 0 }}
             >
-              <StatCard
-                {...card}
-                stat={<AnimatedStat stat={card.stat} />}
-              />
+              <StatCard {...card} stat={<AnimatedStat stat={card.stat} />} />
             </motion.div>
           ))}
         </div>

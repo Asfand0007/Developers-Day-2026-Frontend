@@ -1,12 +1,13 @@
 "use client";
 
-import ContactCard from "./contact-card";
 import { Button } from "@heroui/button";
 import { Link } from "@heroui/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { FiCopy, FiCheck } from "react-icons/fi";
+
+import ContactCard from "./contact-card";
 
 export default function ContactUs() {
   const operationalContacts = [
@@ -67,19 +68,21 @@ export default function ContactUs() {
       setCopiedIndex(i);
       setTimeout(() => setCopiedIndex(null), 1500);
     } catch (err) {
+      // eslint-disable-next-line no-console
       console.error("Failed to copy:", err);
     }
   };
+
   return (
     <section className="bg-dark-red text-white py-16 md:py-24">
       <div className="container mx-auto px-4 md:px-6">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
           className="flex gap-4 mb-12 md:mb-16"
+          initial={{ opacity: 0, y: 40 }}
+          transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
+          viewport={{ once: true, margin: "-80px" }}
+          whileInView={{ opacity: 1, y: 0 }}
         >
           <div className="w-1 bg-red-primary flex-shrink-0" />
           <div>
@@ -100,19 +103,16 @@ export default function ContactUs() {
           <div className="space-y-6">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.65, ease: [0.25, 0.1, 0.25, 1] }}
+              viewport={{ once: true, margin: "-60px" }}
+              whileInView={{ opacity: 1, x: 0 }}
             >
               <ContactCard title="GENERAL_INQUIRIES">
                 <p className="text-gray-400 text-sm mb-6">
                   For competitions, sponsorships and other queries.
                 </p>
 
-                <a
-                  href="mailto:devday.acm.khi@nu.edu.pk"
-                  className="block"
-                >
+                <a className="block" href="mailto:devday.acm.khi@nu.edu.pk">
                   <div className="flex items-center gap-3 bg-red-primary p-4 cursor-pointer hover:opacity-90 transition">
                     <svg
                       className="w-6 h-6 text-white"
@@ -131,27 +131,31 @@ export default function ContactUs() {
 
             <motion.div
               initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              transition={{
+                duration: 0.65,
+                delay: 0.12,
+                ease: [0.25, 0.1, 0.25, 1],
+              }}
               viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.65, delay: 0.12, ease: [0.25, 0.1, 0.25, 1] }}
+              whileInView={{ opacity: 1, x: 0 }}
             >
               <ContactCard
-                title="OPERATIONAL_INQUIRIES"
                 subtitle="CONNECTION_REQUIRED"
+                title="OPERATIONAL_INQUIRIES"
               >
                 <div className="space-y-4">
                   {operationalContacts.map((contact, index) => (
                     <motion.div
                       key={index}
+                      className="border-b border-gray-800 pb-4 last:border-0"
                       initial={{ opacity: 0, y: 12 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, margin: "-40px" }}
                       transition={{
                         duration: 0.4,
                         delay: 0.2 + index * 0.09,
                         ease: "easeOut",
                       }}
-                      className="border-b border-gray-800 pb-4 last:border-0"
+                      viewport={{ once: true, margin: "-40px" }}
+                      whileInView={{ opacity: 1, y: 0 }}
                     >
                       <p className="text-gray-500 text-xs font-mono mb-2">
                         {contact.category}
@@ -173,8 +177,8 @@ export default function ContactUs() {
                             </p>
 
                             <button
-                              onClick={() => handleCopy(contact.phone, index)}
                               className="p-1.5 rounded cursor-pointer bg-gray-800 hover:bg-red-primary transition"
+                              onClick={() => handleCopy(contact.phone, index)}
                             >
                               {copiedIndex === index ? (
                                 <FiCheck className="text-red-primary w-3.5 h-3.5" />
@@ -191,20 +195,20 @@ export default function ContactUs() {
 
                 {/* Social Links */}
                 <motion.div
-                  initial={{ opacity: 0, y: 12 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-40px" }}
-                  transition={{ duration: 0.45, delay: 0.5, ease: "easeOut" }}
                   className="flex gap-4 mt-6 pt-6 border-t border-gray-800"
+                  initial={{ opacity: 0, y: 12 }}
+                  transition={{ duration: 0.45, delay: 0.5, ease: "easeOut" }}
+                  viewport={{ once: true, margin: "-40px" }}
+                  whileInView={{ opacity: 1, y: 0 }}
                 >
                   {socialLinks.map((social) => (
                     <Link
                       key={social.name}
-                      href={social.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-gray-400 hover:text-white transition-colors"
                       aria-label={social.name}
+                      className="text-gray-400 hover:text-white transition-colors"
+                      href={social.href}
+                      rel="noopener noreferrer"
+                      target="_blank"
                     >
                       <svg
                         className="w-6 h-6"
@@ -223,21 +227,26 @@ export default function ContactUs() {
           {/* Right Column — map slides in from right */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            transition={{
+              duration: 0.75,
+              delay: 0.1,
+              ease: [0.25, 0.1, 0.25, 1],
+            }}
             viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.75, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
+            whileInView={{ opacity: 1, x: 0 }}
           >
             <ContactCard title="">
               <div className="relative h-[500px] lg:h-full min-h-[400px]">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3619.2267634850845!2d67.06073631500238!3d24.88594598403654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33e06651d4bbf%3A0x9cf92f44555a0c23!2sFAST%20NUCES%20Karachi!5e0!3m2!1sen!2s!4v1234567890123!5m2!1sen!2s"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
                   allowFullScreen
+                  className="absolute inset-0"
+                  height="100%"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  className="absolute inset-0"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3619.2267634850845!2d67.06073631500238!3d24.88594598403654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33e06651d4bbf%3A0x9cf92f44555a0c23!2sFAST%20NUCES%20Karachi!5e0!3m2!1sen!2s!4v1234567890123!5m2!1sen!2s"
+                  style={{ border: 0 }}
+                  title="Google Maps Location"
+                  width="100%"
                 />
               </div>
               <div className="mt-4 bg-white text-black p-4">
@@ -250,18 +259,18 @@ export default function ContactUs() {
               <div className="flex gap-4 mt-4">
                 <Button
                   as={Link}
-                  href="https://maps.google.com"
-                  target="_blank"
                   className="bg-red-primary hover:bg-red-700 text-white font-bold text-sm flex-1"
+                  href="https://maps.google.com"
                   radius="none"
                   startContent={
                     <Image
-                      src="/icons/location.svg"
                       alt="Location"
-                      width={13}
                       height={13}
+                      src="/icons/location.svg"
+                      width={13}
                     />
                   }
+                  target="_blank"
                 >
                   OPEN_IN_MAPS
                 </Button>
@@ -270,10 +279,10 @@ export default function ContactUs() {
                   radius="none"
                   startContent={
                     <Image
-                      src="/icons/share.svg"
                       alt="Share"
-                      width={20}
                       height={20}
+                      src="/icons/share.svg"
+                      width={20}
                     />
                   }
                 >

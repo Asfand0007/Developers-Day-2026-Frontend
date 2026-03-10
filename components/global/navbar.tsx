@@ -25,7 +25,7 @@ import {
   CircleStackIcon,
   FlagIcon,
   BoltIcon,
-  PresentationChartBarIcon
+  PresentationChartBarIcon,
 } from "@heroicons/react/24/outline";
 import { useState, useEffect, useRef } from "react";
 import { usePathname, useRouter } from "next/navigation";
@@ -33,16 +33,15 @@ import Image from "next/image";
 import { LayoutGroup, motion, AnimatePresence } from "framer-motion";
 
 const modules = [
-  { id: "coding",        label: "Coding",          icon: CodeBracketIcon },
-  { id: "software-eng",  label: "Software Eng",    icon: CommandLineIcon },
-  { id: "tech-quest",    label: "Tech Quest",      icon: CpuChipIcon },
-  { id: "dev-design",    label: "Dev & Design",      icon: ComputerDesktopIcon },
-  { id: "ai-data",       label: "AI & Data",       icon: CircleStackIcon },
-  { id: "general",       label: "General",         icon: FlagIcon },
-  { id: "electrical-eng",label: "Electrical Eng",  icon: BoltIcon },
-  { id: "business",      label: "Business",        icon: PresentationChartBarIcon },
+  { id: "coding", label: "Coding", icon: CodeBracketIcon },
+  { id: "software-eng", label: "Software Eng", icon: CommandLineIcon },
+  { id: "tech-quest", label: "Tech Quest", icon: CpuChipIcon },
+  { id: "dev-design", label: "Dev & Design", icon: ComputerDesktopIcon },
+  { id: "ai-data", label: "AI & Data", icon: CircleStackIcon },
+  { id: "general", label: "General", icon: FlagIcon },
+  { id: "electrical-eng", label: "Electrical Eng", icon: BoltIcon },
+  { id: "business", label: "Business", icon: PresentationChartBarIcon },
 ];
-
 
 export default function AppNavbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -61,52 +60,56 @@ export default function AppNavbar() {
   // Close dropdown when clicking outside
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(e.target as Node)
+      ) {
         setIsModulesOpen(false);
       }
     }
     document.addEventListener("mousedown", handleClickOutside);
+
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   const menuItems = [
-    { name: "HOME",         href: "/",            icon: HomeIcon },
-    { name: "EVENT_DETAILS",href: "/event-details",icon: CalendarIcon },
-    { name: "OUR_TEAM",     href: "/our-team",    icon: UserGroupIcon },
-    { name: "CONTACT_US",   href: "/contact-us",  icon: EnvelopeIcon },
+    { name: "HOME", href: "/", icon: HomeIcon },
+    { name: "EVENT_DETAILS", href: "/event-details", icon: CalendarIcon },
+    { name: "OUR_TEAM", href: "/our-team", icon: UserGroupIcon },
+    { name: "CONTACT_US", href: "/contact-us", icon: EnvelopeIcon },
   ];
 
   const isModulesActive = pathname.startsWith("/modules");
 
   return (
     <Navbar
-      isMenuOpen={isMenuOpen}
-      onMenuOpenChange={setIsMenuOpen}
       className="bg-dark-red border-b border-[#382929]"
-      maxWidth="xl"
-      height="5rem"
       classNames={{
         wrapper: "container mx-auto px-4 md:px-6 h-20",
         item: "text-white data-[active=true]:text-white font-mono",
         menu: "bg-dark-red",
       }}
+      height="5rem"
+      isMenuOpen={isMenuOpen}
+      maxWidth="xl"
+      onMenuOpenChange={setIsMenuOpen}
     >
       {/* Brand */}
       <NavbarContent justify="start">
         <NavbarBrand>
           <motion.div
             key={pathname}
-            initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
             className="flex items-center gap-2"
+            initial={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
           >
             <Image
-              src="/logo.png"
               alt="DevDay Logo"
-              width={33}
-              height={49}
               className="object-contain"
+              height={49}
+              src="/logo.png"
+              width={33}
             />
             <p className="font-bold text-white text-lg tracking-[0.18em]">
               DEVDAY &apos;26
@@ -116,7 +119,7 @@ export default function AppNavbar() {
       </NavbarContent>
 
       {/* Mobile Toggle */}
-      <NavbarContent justify="end" className="lg:hidden">
+      <NavbarContent className="lg:hidden" justify="end">
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           className="text-white"
@@ -129,18 +132,19 @@ export default function AppNavbar() {
           {/* HOME */}
           {menuItems.slice(0, 1).map((item) => {
             const isActive = pathname === item.href;
+
             return (
               <NavbarItem key={item.name} className="relative">
                 <Link
-                  href={item.href}
                   className="text-white hover:text-gray-200 text-sm md:text-base transition-colors font-bold tracking-[0.18em]"
+                  href={item.href}
                 >
                   {item.name}
                 </Link>
                 {isActive && (
                   <motion.div
-                    layoutId="navbar-active-underline"
                     className="absolute -bottom-1 left-0 right-0 h-[2px] bg-red-primary"
+                    layoutId="navbar-active-underline"
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
                 )}
@@ -149,14 +153,14 @@ export default function AppNavbar() {
           })}
 
           {/* MODULES Dropdown */}
-          <NavbarItem className="relative" ref={dropdownRef}>
+          <NavbarItem ref={dropdownRef} className="relative">
             <button
+              aria-expanded={isModulesOpen}
+              aria-haspopup="true"
+              className="flex items-center gap-1 cursor-pointer text-white hover:text-gray-200 text-sm md:text-base font-bold tracking-[0.18em] transition-colors focus:outline-none"
+              onClick={() => setIsModulesOpen((v) => !v)}
               onMouseEnter={() => setIsModulesOpen(true)}
               onMouseLeave={() => setIsModulesOpen(false)}
-              onClick={() => setIsModulesOpen((v) => !v)}
-              className="flex items-center gap-1 cursor-pointer text-white hover:text-gray-200 text-sm md:text-base font-bold tracking-[0.18em] transition-colors focus:outline-none"
-              aria-haspopup="true"
-              aria-expanded={isModulesOpen}
             >
               MODULES
               <motion.span
@@ -169,8 +173,8 @@ export default function AppNavbar() {
 
             {isModulesActive && (
               <motion.div
-                layoutId="navbar-active-underline"
                 className="absolute -bottom-1 left-0 right-0 h-[2px] bg-red-primary"
+                layoutId="navbar-active-underline"
                 transition={{ type: "spring", stiffness: 380, damping: 30 }}
               />
             )}
@@ -179,14 +183,14 @@ export default function AppNavbar() {
             <AnimatePresence>
               {isModulesOpen && (
                 <motion.div
-                  initial={{ opacity: 0, y: 8, scale: 0.97 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
+                  className="absolute top-[calc(100%+12px)] left-1/2 -translate-x-1/2 w-64 bg-dark-red border border-[#4a2020] shadow-2xl z-50"
                   exit={{ opacity: 0, y: 8, scale: 0.97 }}
+                  initial={{ opacity: 0, y: 8, scale: 0.97 }}
+                  style={{ borderRadius: 0 }}
                   transition={{ duration: 0.18, ease: "easeOut" }}
                   onMouseEnter={() => setIsModulesOpen(true)}
                   onMouseLeave={() => setIsModulesOpen(false)}
-                  className="absolute top-[calc(100%+12px)] left-1/2 -translate-x-1/2 w-64 bg-dark-red border border-[#4a2020] shadow-2xl z-50"
-                  style={{ borderRadius: 0 }}
                 >
                   {/* Arrow */}
                   <div className="absolute -top-[6px] left-1/2 -translate-x-1/2 w-3 h-3 bg-dark-red border-l border-t border-[#4a2020] rotate-45" />
@@ -195,21 +199,23 @@ export default function AppNavbar() {
                     {modules.map((mod, i) => {
                       const Icon = mod.icon;
                       const isActive = pathname === `/modules/${mod.id}`;
+
                       return (
                         <motion.button
                           key={mod.id}
-                          initial={{ opacity: 0, x: -6 }}
                           animate={{ opacity: 1, x: 0 }}
+                          className={`w-full flex cursor-pointer items-center gap-3 px-5 py-2.5 text-sm font-bold tracking-widest transition-colors text-left
+                            ${
+                              isActive
+                                ? "text-white bg-red-primary/20 border-l-2 border-red-primary"
+                                : "text-gray-300 hover:text-white hover:bg-white/5 border-l-2 border-transparent"
+                            }`}
+                          initial={{ opacity: 0, x: -6 }}
                           transition={{ delay: i * 0.03 }}
                           onClick={() => {
                             router.push(`/modules/${mod.id}`);
                             setIsModulesOpen(false);
                           }}
-                          className={`w-full flex cursor-pointer items-center gap-3 px-5 py-2.5 text-sm font-bold tracking-widest transition-colors text-left
-                            ${isActive
-                              ? "text-white bg-red-primary/20 border-l-2 border-red-primary"
-                              : "text-gray-300 hover:text-white hover:bg-white/5 border-l-2 border-transparent"
-                            }`}
                         >
                           <Icon className="w-4 h-4 flex-shrink-0" />
                           {mod.label.toUpperCase()}
@@ -227,18 +233,19 @@ export default function AppNavbar() {
             const isActive =
               pathname === item.href ||
               (item.href !== "/" && pathname.startsWith(item.href));
+
             return (
               <NavbarItem key={item.name} className="relative">
                 <Link
-                  href={item.href}
                   className="text-white hover:text-gray-200 text-sm md:text-base transition-colors font-bold tracking-[0.18em]"
+                  href={item.href}
                 >
                   {item.name}
                 </Link>
                 {isActive && (
                   <motion.div
-                    layoutId="navbar-active-underline"
                     className="absolute -bottom-1 left-0 right-0 h-[2px] bg-red-primary"
+                    layoutId="navbar-active-underline"
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
                 )}
@@ -249,12 +256,12 @@ export default function AppNavbar() {
       </NavbarContent>
 
       {/* Register Button - Desktop */}
-      <NavbarContent justify="end" className="hidden lg:flex">
+      <NavbarContent className="hidden lg:flex" justify="end">
         <NavbarItem>
           <Button
             as={Link}
-            href="/register"
             className="bg-red-primary hover:bg-red-700 text-lg text-white font-bold gap-10 px-8"
+            href="/register"
             radius="none"
           >
             REGISTER_NOW
@@ -267,8 +274,12 @@ export default function AppNavbar() {
         {/* HOME */}
         {menuItems.slice(0, 1).map((item, index) => {
           const Icon = item.icon;
+
           return (
-            <NavbarMenuItem key={`${item.name}-${index}`} className="w-full flex justify-center">
+            <NavbarMenuItem
+              key={`${item.name}-${index}`}
+              className="w-full flex justify-center"
+            >
               <Link
                 className="text-white hover:text-gray-200 flex items-center gap-3 py-2"
                 href={item.href}
@@ -285,8 +296,8 @@ export default function AppNavbar() {
         {/* MODULES accordion */}
         <NavbarMenuItem className="w-full">
           <button
-            onClick={() => setIsMobileModulesOpen((v) => !v)}
             className="w-full flex items-center justify-center gap-3 py-2 text-white hover:text-gray-200 text-lg font-normal focus:outline-none"
+            onClick={() => setIsMobileModulesOpen((v) => !v)}
           >
             <CubeIcon className="w-5 h-5" />
             MODULES
@@ -301,22 +312,23 @@ export default function AppNavbar() {
           <AnimatePresence>
             {isMobileModulesOpen && (
               <motion.div
-                initial={{ height: 0, opacity: 0 }}
                 animate={{ height: "auto", opacity: 1 }}
-                exit={{ height: 0, opacity: 0 }}
-                transition={{ duration: 0.25, ease: "easeInOut" }}
                 className="overflow-hidden flex flex-col items-center w-full ml-2"
+                exit={{ height: 0, opacity: 0 }}
+                initial={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.25, ease: "easeInOut" }}
               >
                 <div className="flex flex-col items-center w-fit gap-1 py-2 border-red-primary/40 border-l-2">
                   {modules.map((mod) => {
                     const Icon = mod.icon;
                     const isActive = pathname === `/modules/${mod.id}`;
+
                     return (
                       <Link
                         key={mod.id}
-                        href={`/modules/${mod.id}`}
                         className={`flex items-center gap-2 py-1 px-4 text-white hover:text-gray-200 text-base font-normal tracking-widest transition-colors w-full 
                           ${isActive ? "text-white border-red-primary border-l-3" : "text-white hover:text-white"}`}
+                        href={`/modules/${mod.id}`}
                         onPress={() => setIsMenuOpen(false)}
                       >
                         <Icon className="w-4 h-4" />
@@ -333,8 +345,12 @@ export default function AppNavbar() {
         {/* Rest of items */}
         {menuItems.slice(1).map((item, index) => {
           const Icon = item.icon;
+
           return (
-            <NavbarMenuItem key={`${item.name}-${index}`} className="w-full flex justify-center">
+            <NavbarMenuItem
+              key={`${item.name}-${index}`}
+              className="w-full flex justify-center"
+            >
               <Link
                 className="text-white hover:text-gray-200 flex items-center gap-3 py-2"
                 href={item.href}
@@ -351,8 +367,8 @@ export default function AppNavbar() {
         <NavbarMenuItem className="w-full flex justify-center mt-4">
           <Button
             as={Link}
-            href="/register"
             className="bg-red-primary hover:bg-red-700 text-lg text-white font-bold px-8"
+            href="/register"
             radius="none"
             onPress={() => setIsMenuOpen(false)}
           >

@@ -37,18 +37,18 @@ export default function CompetitionCard({
 
   return (
     <motion.div
-      whileHover={{ y: -4, transition: { duration: 0.25 } }}
       className="flex flex-col overflow-hidden bg-[#111214] border-[0.25px] border-[#333333]"
+      whileHover={{ y: -4, transition: { duration: 0.25 } }}
     >
       {/* ── Image section with overlaid title ── */}
       <div className="relative h-52 overflow-hidden flex-shrink-0 border-b-[0.25px] border-b-[#333333]">
         {/* Background image */}
         {image ? (
           <Image
-            src={image}
-            alt={title}
             fill
+            alt={title}
             className="object-cover grayscale opacity-60"
+            src={image}
           />
         ) : (
           <div className="absolute inset-0 bg-gradient-to-br from-[#0e0e14] to-[#161620]" />
@@ -77,9 +77,7 @@ export default function CompetitionCard({
       {/* ── Content section ── */}
       <div className="flex flex-col flex-1 px-5 pt-5 pb-5 gap-5">
         {/* Description */}
-        <p className="text-white text-sm leading-relaxed">
-          {description}
-        </p>
+        <p className="text-white text-sm leading-relaxed">{description}</p>
 
         {/* Features 2×2 */}
         <div className="grid grid-cols-2 gap-3 flex-1">
@@ -104,11 +102,8 @@ export default function CompetitionCard({
 
         {/* Register button */}
         <Button
-          as={Link}
-          href={registerHref}
-          radius="none"
           fullWidth
-          size="lg"
+          as={Link}
           className={
             variant === "filled"
               ? "bg-[var(--color,#2563EB)] text-white font-bold tracking-widest text-sm justify-between px-5"
@@ -119,6 +114,9 @@ export default function CompetitionCard({
               {variant === "filled" ? "→" : "↗"}
             </span>
           }
+          href={registerHref}
+          radius="none"
+          size="lg"
         >
           REGISTER NOW
         </Button>

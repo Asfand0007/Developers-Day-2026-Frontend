@@ -8,7 +8,11 @@ interface ContactCardProps {
   children: ReactNode;
 }
 
-export default function ContactCard({ title, subtitle, children }: ContactCardProps) {
+export default function ContactCard({
+  title,
+  subtitle,
+  children,
+}: ContactCardProps) {
   return (
     <div className="relative bg-dark-red-1  p-6 md:p-8">
       {/* Red corner accents */}
@@ -17,8 +21,14 @@ export default function ContactCard({ title, subtitle, children }: ContactCardPr
 
       {/* Header */}
       <div className="mb-6">
-        {subtitle && <p className="text-red-primary text-xs font-mono uppercase mb-2">{subtitle}</p>}
-        <h3 className="text-white text-xl md:text-2xl font-bold uppercase">{title}</h3>
+        {subtitle && (
+          <p className="text-red-primary text-xs font-mono uppercase mb-2">
+            {subtitle}
+          </p>
+        )}
+        <h3 className="text-white text-xl md:text-2xl font-bold uppercase">
+          {title}
+        </h3>
       </div>
 
       {/* Content */}

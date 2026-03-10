@@ -1,7 +1,8 @@
 "use client";
 
-import TeamCard from "./team-card";
 import { motion } from "framer-motion";
+
+import TeamCard from "./team-card";
 
 function roleFromFilename(filename: string): string {
   return filename.replace(/\.(png|jpg|jpeg|webp)$/i, "").replace(/_/g, " ");
@@ -90,14 +91,16 @@ const teamMembers = [
   isMiddle: member.image.endsWith("/President.png"),
 }));
 
-const topLeaders = teamMembers.filter(member =>
-  member.image.endsWith("/President.png") ||
-  member.image.endsWith("/Vice_President.png")
+const topLeaders = teamMembers.filter(
+  (member) =>
+    member.image.endsWith("/President.png") ||
+    member.image.endsWith("/Vice_President.png"),
 );
 
-const otherMembers = teamMembers.filter(member =>
-  !member.image.endsWith("/President.png") &&
-  !member.image.endsWith("/Vice_President.png")
+const otherMembers = teamMembers.filter(
+  (member) =>
+    !member.image.endsWith("/President.png") &&
+    !member.image.endsWith("/Vice_President.png"),
 );
 
 export default function OurTeam() {
@@ -106,11 +109,11 @@ export default function OurTeam() {
       <div className="container mx-auto px-4 md:px-6">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
           className="flex gap-4 mb-12 md:mb-16"
+          initial={{ opacity: 0, y: 40 }}
+          transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
+          viewport={{ once: true, margin: "-80px" }}
+          whileInView={{ opacity: 1, y: 0 }}
         >
           <div className="w-1 bg-red-primary flex-shrink-0" />
           <div>
@@ -148,14 +151,14 @@ export default function OurTeam() {
           {topLeaders.map((member, index) => (
             <motion.div
               key={member.role}
+              className="w-full md:w-1/2 lg:w-1/3"
               initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
               transition={{
                 duration: 0.6,
                 delay: index * 0.1,
               }}
-              className="w-full md:w-1/2 lg:w-1/3"
+              viewport={{ once: true }}
+              whileInView={{ opacity: 1, y: 0 }}
             >
               <TeamCard {...member} />
             </motion.div>
@@ -168,14 +171,14 @@ export default function OurTeam() {
             <motion.div
               key={member.role}
               initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
               transition={{
                 duration: 0.6,
                 delay: Math.min(index * 0.08, 0.56),
                 ease: [0.25, 0.1, 0.25, 1],
               }}
+              viewport={{ once: true, margin: "-60px" }}
               whileHover={{ y: -6, transition: { duration: 0.25 } }}
+              whileInView={{ opacity: 1, y: 0 }}
             >
               <TeamCard {...member} />
             </motion.div>

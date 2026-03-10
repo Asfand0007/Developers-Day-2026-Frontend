@@ -33,7 +33,9 @@ export default function EventInfo() {
       if (difference > 0) {
         setTimeLeft({
           days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+          hours: Math.floor(
+            (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+          ),
           minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
           seconds: Math.floor((difference % (1000 * 60)) / 1000),
         });
@@ -53,8 +55,9 @@ export default function EventInfo() {
     value: number;
     label: string;
   }) => (
-    <div className={`${spaceGrotesk.className} relative flex flex-1 flex-col items-center overflow-hidden border border-[#392828] bg-[#271C1C] p-6 max-sm:p-3 min-w-0`}>
-
+    <div
+      className={`${spaceGrotesk.className} relative flex flex-1 flex-col items-center overflow-hidden border border-[#392828] bg-[#271C1C] p-6 max-sm:p-3 min-w-0`}
+    >
       <div className="text-white font-bold text-6xl max-sm:text-3xl">
         {value.toString().padStart(2, "0")}
       </div>
@@ -82,10 +85,10 @@ export default function EventInfo() {
 
       {/* countdown blocks */}
       <div className="grid grid-cols-2 sm:flex gap-2 border border-[#392828] p-2">
-        <CountdownBlock value={timeLeft.days} label="DAYS" />
-        <CountdownBlock value={timeLeft.hours} label="HOURS" />
-        <CountdownBlock value={timeLeft.minutes} label="MINUTES" />
-        <CountdownBlock value={timeLeft.seconds} label="SECONDS" />
+        <CountdownBlock label="DAYS" value={timeLeft.days} />
+        <CountdownBlock label="HOURS" value={timeLeft.hours} />
+        <CountdownBlock label="MINUTES" value={timeLeft.minutes} />
+        <CountdownBlock label="SECONDS" value={timeLeft.seconds} />
       </div>
     </div>
   );

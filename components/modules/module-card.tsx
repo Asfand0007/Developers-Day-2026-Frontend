@@ -14,7 +14,14 @@ interface ModuleCardProps {
   url: string;
 }
 
-export default function ModuleCard({ id, icon, title, description, code, url }: ModuleCardProps) {
+export default function ModuleCard({
+  id: _id,
+  icon,
+  title,
+  description,
+  code,
+  url,
+}: ModuleCardProps) {
   return (
     <div className="bg-dark-red-1 flex flex-col h-[350px] overflow-hidden">
       {/* Content Area */}
@@ -26,21 +33,27 @@ export default function ModuleCard({ id, icon, title, description, code, url }: 
         </div>
 
         {/* Title */}
-        <h3 className="text-white text-xl font-bold mb-4 uppercase leading-tight">{title}</h3>
+        <h3 className="text-white text-xl font-bold mb-4 uppercase leading-tight">
+          {title}
+        </h3>
 
         {/* Description */}
-        <p className="text-gray-400 text-xs leading-relaxed flex-1">{description}</p>
+        <p className="text-gray-400 text-xs leading-relaxed flex-1">
+          {description}
+        </p>
       </div>
 
       {/* Read More Button */}
       <div className="px-6 pb-6">
         <Button
-          as={Link}
-          href={url}
-          className="bg-dark-red-2 hover:bg-dark-red-2 text-white font-mono text-sm w-full justify-between"
-          radius="none"
           fullWidth
-          endContent={<Image src="/icons/read.svg" alt="Read" width={20} height={20} />}
+          as={Link}
+          className="bg-dark-red-2 hover:bg-dark-red-2 text-white font-mono text-sm w-full justify-between"
+          endContent={
+            <Image alt="Read" height={20} src="/icons/read.svg" width={20} />
+          }
+          href={url}
+          radius="none"
         >
           SYS:_READ_MORE
         </Button>

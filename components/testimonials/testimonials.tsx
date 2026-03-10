@@ -1,7 +1,8 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
-import TestimonialCard from "./testimonial-card";
+import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
+
+import TestimonialCard from "./testimonial-card";
 
 export default function Testimonials() {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -26,7 +27,7 @@ export default function Testimonials() {
       name: "M. UMAIR SIDDIQUI",
       role: "VP ENTERPRISE SERVICES, MAZIK GLOBAL",
       testimonial:
-        "Having organized events for 10–15 years myself, it's rare to see students execute something with such clarity, alignment, and professionalism. The coordination and management of the event were truly impressive.",
+        "Having organized events for 10–15 years myself, it is rare to see students execute something with such clarity, alignment, and professionalism. The coordination and management of the event were truly impressive.",
     },
     {
       id: "0003",
@@ -46,6 +47,7 @@ export default function Testimonials() {
 
   useEffect(() => {
     const container = scrollRef.current;
+
     if (!container) return;
 
     // Auto-scroll loop
@@ -59,6 +61,7 @@ export default function Testimonials() {
       }
       animationRef.current = requestAnimationFrame(animate);
     };
+
     animationRef.current = requestAnimationFrame(animate);
 
     // Mouse drag
@@ -75,6 +78,7 @@ export default function Testimonials() {
       e.preventDefault();
       const x = e.pageX - container.offsetLeft;
       const walk = (x - startX.current) * 1.5;
+
       container.scrollLeft = scrollLeft.current - walk;
       autoScrollPos.current = container.scrollLeft;
     };
@@ -98,6 +102,7 @@ export default function Testimonials() {
     const onTouchMove = (e: TouchEvent) => {
       const x = e.touches[0].pageX - container.offsetLeft;
       const walk = (x - startX.current) * 1.5;
+
       container.scrollLeft = scrollLeft.current - walk;
       autoScrollPos.current = container.scrollLeft;
     };
@@ -133,34 +138,38 @@ export default function Testimonials() {
     <section className="bg-dark-red-2 text-white py-16 md:py-24 overflow-hidden px-4">
       <div className="container mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.65, ease: [0.25, 0.1, 0.25, 1] }}
           className="flex justify-between items-center mb-6"
+          initial={{ opacity: 0, y: 30 }}
+          transition={{ duration: 0.65, ease: [0.25, 0.1, 0.25, 1] }}
+          viewport={{ once: true, margin: "-80px" }}
+          whileInView={{ opacity: 1, y: 0 }}
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">TESTIMONIALS</h2>
-          <span className="bg-red-primary text-white text-xs font-mono px-3 py-1">V4</span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
+            TESTIMONIALS
+          </h2>
+          <span className="bg-red-primary text-white text-xs font-mono px-3 py-1">
+            V4
+          </span>
         </motion.div>
         <motion.div
-          initial={{ scaleX: 0 }}
-          whileInView={{ scaleX: 1 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
-          style={{ originX: 0 }}
           className="h-0.5 bg-red-primary mb-8"
+          initial={{ scaleX: 0 }}
+          style={{ originX: 0 }}
+          transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
+          viewport={{ once: true, margin: "-80px" }}
+          whileInView={{ scaleX: 1 }}
         />
       </div>
 
       {/* Scrolling Testimonials */}
       <motion.div
         ref={scrollRef}
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true, margin: "-60px" }}
-        transition={{ duration: 0.7, delay: 0.2 }}
         className="flex gap-6 overflow-x-scroll select-none"
+        initial={{ opacity: 0 }}
         style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+        transition={{ duration: 0.7, delay: 0.2 }}
+        viewport={{ once: true, margin: "-60px" }}
+        whileInView={{ opacity: 1 }}
       >
         <style>{`div::-webkit-scrollbar { display: none; }`}</style>
         {[...testimonials, ...testimonials].map((testimonial, index) => (

@@ -1,17 +1,18 @@
 "use client";
 
-import ModuleCard from "./module-card";
 import { Button } from "@heroui/button";
 import { Link } from "@heroui/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
+
+import ModuleCard from "./module-card";
 
 export default function ModuleCategories() {
   const modules = [
     {
       id: "coding-competitions",
       icon: (
-        <Image src="/icons/coding.svg" alt="Coding" width={32} height={32} />
+        <Image alt="Coding" height={32} src="/icons/coding.svg" width={32} />
       ),
       title: "CORE CODING",
       description:
@@ -23,10 +24,10 @@ export default function ModuleCategories() {
       id: "software-engineering",
       icon: (
         <Image
-          src="/icons/software.svg"
           alt="Software"
-          width={32}
           height={32}
+          src="/icons/software.svg"
+          width={32}
         />
       ),
       title: "SOFTWARE ENGINEERING",
@@ -37,20 +38,15 @@ export default function ModuleCategories() {
     },
     {
       id: "tech-quest",
-      icon: (
-        <Image src="/icons/tech.svg" alt="Tech" width={32} height={32} />
-      ),
+      icon: <Image alt="Tech" height={32} src="/icons/tech.svg" width={32} />,
       title: "TECH QUEST",
-      description:
-        "Exploration and tech testing platform digital innovations.",
+      description: "Exploration and tech testing platform digital innovations.",
       code: "C_03",
       url: "/modules/tech-quest",
     },
     {
       id: "dev-design",
-      icon: (
-        <Image src="/icons/dev.svg" alt="Build" width={32} height={32} />
-      ),
+      icon: <Image alt="Build" height={32} src="/icons/dev.svg" width={32} />,
       title: "DEV & DESGIN",
       description:
         "Stress-testing structures through adversarial design and deconstruction.",
@@ -59,7 +55,7 @@ export default function ModuleCategories() {
     },
     {
       id: "ai-data",
-      icon: <Image src="/icons/ai.svg" alt="AI" width={32} height={32} />,
+      icon: <Image alt="AI" height={32} src="/icons/ai.svg" width={32} />,
       title: "AI & DATA SCIENCE",
       description:
         "Deep neural modeling and predictive analytics processing vast datasets logic warfare.",
@@ -68,7 +64,7 @@ export default function ModuleCategories() {
     },
     {
       id: "general",
-      icon: <Image src="/icons/general.svg" alt="AI" width={32} height={32} />,
+      icon: <Image alt="AI" height={32} src="/icons/general.svg" width={32} />,
       title: "GENERAL",
       description:
         "Deep neural modeling and predictive analytics processing vast datasets logic warfare.",
@@ -77,7 +73,9 @@ export default function ModuleCategories() {
     },
     {
       id: "electrical-eng",
-      icon: <Image src="/icons/electrical.svg" alt="AI" width={32} height={32} />,
+      icon: (
+        <Image alt="AI" height={32} src="/icons/electrical.svg" width={32} />
+      ),
       title: "ELECTRICAL ENGINEERING",
       description:
         "Deep neural modeling and predictive analytics processing vast datasets logic warfare.",
@@ -86,7 +84,7 @@ export default function ModuleCategories() {
     },
     {
       id: "business",
-      icon: <Image src="/icons/business.svg" alt="AI" width={32} height={32} />,
+      icon: <Image alt="AI" height={32} src="/icons/business.svg" width={32} />,
       title: "BUSINESS",
       description:
         "Deep neural modeling and predictive analytics processing vast datasets logic warfare.",
@@ -100,11 +98,11 @@ export default function ModuleCategories() {
       <div className="container mx-auto">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.65, ease: [0.25, 0.1, 0.25, 1] }}
           className="flex justify-between items-center mb-6"
+          initial={{ opacity: 0, y: 30 }}
+          transition={{ duration: 0.65, ease: [0.25, 0.1, 0.25, 1] }}
+          viewport={{ once: true, margin: "-80px" }}
+          whileInView={{ opacity: 1, y: 0 }}
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
             MODULE_CATEGORIES
@@ -116,12 +114,12 @@ export default function ModuleCategories() {
 
         {/* Red divider — scales in from left */}
         <motion.div
-          initial={{ scaleX: 0 }}
-          whileInView={{ scaleX: 1 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
-          style={{ originX: 0 }}
           className="h-0.5 bg-red-primary mb-8"
+          initial={{ scaleX: 0 }}
+          style={{ originX: 0 }}
+          transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
+          viewport={{ once: true, margin: "-80px" }}
+          whileInView={{ scaleX: 1 }}
         />
 
         {/* Module Grid — staggered cards */}
@@ -130,13 +128,13 @@ export default function ModuleCategories() {
             <motion.div
               key={module.code}
               initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
               transition={{
                 duration: 0.55,
                 delay: index * 0.1,
                 ease: [0.25, 0.1, 0.25, 1],
               }}
+              viewport={{ once: true, margin: "-60px" }}
+              whileInView={{ opacity: 1, y: 0 }}
             >
               <ModuleCard {...module} />
             </motion.div>
@@ -145,16 +143,16 @@ export default function ModuleCategories() {
 
         {/* Footer */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.55, delay: 0.15, ease: "easeOut" }}
           className="flex justify-between items-center"
+          initial={{ opacity: 0, y: 20 }}
+          transition={{ duration: 0.55, delay: 0.15, ease: "easeOut" }}
+          viewport={{ once: true, margin: "-60px" }}
+          whileInView={{ opacity: 1, y: 0 }}
         >
           <Button
             as={Link}
-            href="/modules"
             className="bg-red-primary hover:bg-red-700 text-white font-bold px-6 py-3"
+            href="/modules"
             radius="none"
           >
             VISIT:_ALL_MODULES

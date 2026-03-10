@@ -32,30 +32,30 @@ export default function InteractiveMap() {
 
   return (
     <svg
-      width="1440"
-      height="543"
-      viewBox="0 0 1440 543"
       fill="none"
-      xmlns="http://www.w3.org/2000/svg"
+      height="543"
       style={{ maxWidth: "100%", height: "auto" }}
+      viewBox="0 0 1440 543"
+      width="1440"
+      xmlns="http://www.w3.org/2000/svg"
     >
-      <rect width="1440" height="543" fill="#1D0E0E" />
+      <rect fill="#1D0E0E" height="543" width="1440" />
 
       {/* EE Block */}
       <g
         id="ee_block"
-        onClick={() => handleClick("ee_block")}
         style={{ cursor: "pointer" }}
+        onClick={() => handleClick("ee_block")}
       >
         <g filter="url(#filter0_d_750_6506)">
           <rect
-            x="1176"
-            y="36"
-            width="208"
+            fill={getColor("ee_block")}
             height="471"
             rx="10"
-            fill={getColor("ee_block")}
             style={{ transition: "fill 0.3s ease" }}
+            width="208"
+            x="1176"
+            y="36"
           />
         </g>
       </g>
@@ -63,18 +63,18 @@ export default function InteractiveMap() {
       {/* EE Canteen */}
       <g
         id="ee_canteen"
-        onClick={() => handleClick("ee_canteen")}
         style={{ cursor: "pointer" }}
+        onClick={() => handleClick("ee_canteen")}
       >
         <g filter="url(#filter1_d_750_6506)">
           <rect
-            x="996"
-            y="36"
-            width="172"
+            fill={getColor("ee_canteen")}
             height="88"
             rx="10"
-            fill={getColor("ee_canteen")}
             style={{ transition: "fill 0.3s ease" }}
+            width="172"
+            x="996"
+            y="36"
           />
         </g>
       </g>
@@ -82,17 +82,17 @@ export default function InteractiveMap() {
       {/* EE Lawn */}
       <g
         id="ee_lawn"
-        onClick={() => handleClick("ee_lawn")}
         style={{ cursor: "pointer" }}
+        onClick={() => handleClick("ee_lawn")}
       >
         <rect
-          x="1054"
-          y="210"
-          width="23"
+          fill={getColor("ee_lawn")}
           height="24"
           rx="2"
-          fill={getColor("ee_lawn")}
           style={{ transition: "fill 0.3s ease" }}
+          width="23"
+          x="1054"
+          y="210"
         />
         <g filter="url(#filter2_d_750_6506)">
           <path
@@ -113,18 +113,18 @@ export default function InteractiveMap() {
       {/* Mosque */}
       <g
         id="mosque"
-        onClick={() => handleClick("mosque")}
         style={{ cursor: "pointer" }}
+        onClick={() => handleClick("mosque")}
       >
         <g filter="url(#filter4_d_750_6506)">
           <rect
-            x="854"
-            y="36"
-            width="98"
+            fill={getColor("mosque")}
             height="112"
             rx="10"
-            fill={getColor("mosque")}
             style={{ transition: "fill 0.3s ease" }}
+            width="98"
+            x="854"
+            y="36"
           />
         </g>
       </g>
@@ -132,18 +132,18 @@ export default function InteractiveMap() {
       {/* CS Dhaba */}
       <g
         id="cs_dhaba"
-        onClick={() => handleClick("cs_dhaba")}
         style={{ cursor: "pointer" }}
+        onClick={() => handleClick("cs_dhaba")}
       >
         <g filter="url(#filter5_d_750_6506)">
           <rect
-            x="456"
-            y="36"
-            width="98"
+            fill={getColor("cs_dhaba")}
             height="112"
             rx="10"
-            fill={getColor("cs_dhaba")}
             style={{ transition: "fill 0.3s ease" }}
+            width="98"
+            x="456"
+            y="36"
           />
         </g>
       </g>
@@ -151,18 +151,18 @@ export default function InteractiveMap() {
       {/* Entrance Garden */}
       <g
         id="entrance_garden"
-        onClick={() => handleClick("entrance_garden")}
         style={{ cursor: "pointer" }}
+        onClick={() => handleClick("entrance_garden")}
       >
         <g filter="url(#filter6_d_750_6506)">
           <rect
-            x="710"
-            y="390"
-            width="242"
+            fill={getColor("entrance_garden")}
             height="117"
             rx="10"
-            fill={getColor("entrance_garden")}
             style={{ transition: "fill 0.3s ease" }}
+            width="242"
+            x="710"
+            y="390"
           />
         </g>
         <g filter="url(#filter7_di_750_6506)">
@@ -206,26 +206,26 @@ export default function InteractiveMap() {
       {/* Basketball Court */}
       <g
         id="basketball_court"
-        onClick={() => handleClick("basketball_court")}
         style={{ cursor: "pointer" }}
+        onClick={() => handleClick("basketball_court")}
       >
         <g filter="url(#filter13_d_750_6506)">
           <rect
-            x="456"
-            y="390"
-            width="242"
+            fill={getColor("basketball_court")}
             height="117"
             rx="10"
-            fill={getColor("basketball_court")}
             style={{ transition: "fill 0.3s ease" }}
+            width="242"
+            x="456"
+            y="390"
           />
         </g>
-        <line x1="577.5" y1="390" x2="577.5" y2="507" stroke="#535252" />
+        <line stroke="#535252" x1="577.5" x2="577.5" y1="390" y2="507" />
         <circle
           cx="577"
           cy="449"
-          r="13.5"
           fill={getColor("basketball_court")}
+          r="13.5"
           stroke="#535252"
           style={{ transition: "fill 0.3s ease" }}
         />
@@ -242,18 +242,18 @@ export default function InteractiveMap() {
       {/* Multipurpose */}
       <g
         id="multipurpose"
-        onClick={() => handleClick("multipurpose")}
         style={{ cursor: "pointer" }}
+        onClick={() => handleClick("multipurpose")}
       >
         <g filter="url(#filter14_d_750_6506)">
           <rect
-            x="224"
-            y="86"
-            width="208"
+            fill={getColor("multipurpose")}
             height="206"
             rx="10"
-            fill={getColor("multipurpose")}
             style={{ transition: "fill 0.3s ease" }}
+            width="208"
+            x="224"
+            y="86"
           />
         </g>
       </g>
@@ -261,18 +261,18 @@ export default function InteractiveMap() {
       {/* Sports Room */}
       <g
         id="sports_room"
-        onClick={() => handleClick("sports_room")}
         style={{ cursor: "pointer" }}
+        onClick={() => handleClick("sports_room")}
       >
         <g filter="url(#filter15_d_750_6506)">
           <rect
-            x="56"
-            y="36"
-            width="149"
+            fill={getColor("sports_room")}
             height="43"
             rx="10"
-            fill={getColor("sports_room")}
             style={{ transition: "fill 0.3s ease" }}
+            width="149"
+            x="56"
+            y="36"
           />
         </g>
       </g>
@@ -280,31 +280,31 @@ export default function InteractiveMap() {
       {/* Futsal Court */}
       <g
         id="futsal_court"
-        onClick={() => handleClick("futsal_court")}
         style={{ cursor: "pointer" }}
+        onClick={() => handleClick("futsal_court")}
       >
         <g filter="url(#filter16_d_750_6506)">
           <rect
-            x="55"
-            y="86"
-            width="150"
+            fill={getColor("futsal_court")}
             height="220"
             rx="10"
-            fill={getColor("futsal_court")}
             style={{ transition: "fill 0.3s ease" }}
+            width="150"
+            x="55"
+            y="86"
           />
         </g>
-        <line x1="195" y1="196.5" x2="65" y2="196.5" stroke="#535252" />
-        <line x1="195.5" y1="86" x2="195.5" y2="306" stroke="#535252" />
-        <line x1="65.5" y1="86" x2="65.5" y2="306" stroke="#535252" />
+        <line stroke="#535252" x1="195" x2="65" y1="196.5" y2="196.5" />
+        <line stroke="#535252" x1="195.5" x2="195.5" y1="86" y2="306" />
+        <line stroke="#535252" x1="65.5" x2="65.5" y1="86" y2="306" />
         <circle
           cx="130"
           cy="196"
-          r="13.5"
-          transform="rotate(90 130 196)"
           fill={getColor("futsal_court")}
+          r="13.5"
           stroke="#535252"
           style={{ transition: "fill 0.3s ease" }}
+          transform="rotate(90 130 196)"
         />
         <path
           d="M95.3708 306C93.8693 293.502 95.3708 269 130.354 269C163.347 269 165.667 293.502 163.347 306"
@@ -319,29 +319,29 @@ export default function InteractiveMap() {
       {/* CS Lawn */}
       <g
         id="cs_lawn"
-        onClick={() => handleClick("cs_lawn")}
         style={{ cursor: "pointer" }}
+        onClick={() => handleClick("cs_lawn")}
       >
         <g filter="url(#filter17_d_750_6506)">
           <rect
-            x="131"
-            y="327"
-            width="301"
+            fill={getColor("cs_lawn")}
             height="180"
             rx="10"
-            fill={getColor("cs_lawn")}
             style={{ transition: "fill 0.3s ease" }}
+            width="301"
+            x="131"
+            y="327"
           />
         </g>
         <g filter="url(#filter18_d_750_6506)">
           <rect
-            x="56"
-            y="327"
-            width="139"
+            fill={getColor("cs_lawn")}
             height="180"
             rx="10"
-            fill={getColor("cs_lawn")}
             style={{ transition: "fill 0.3s ease" }}
+            width="139"
+            x="56"
+            y="327"
           />
         </g>
       </g>
@@ -349,29 +349,29 @@ export default function InteractiveMap() {
       {/* CS Block */}
       <g
         id="cs_block"
-        onClick={() => handleClick("cs_block")}
         style={{ cursor: "pointer" }}
+        onClick={() => handleClick("cs_block")}
       >
         <g filter="url(#filter19_d_750_6506)">
           <rect
-            x="455"
-            y="190"
-            width="69"
+            fill={getColor("cs_block")}
             height="137"
             rx="10"
-            fill={getColor("cs_block")}
             style={{ transition: "fill 0.3s ease" }}
+            width="69"
+            x="455"
+            y="190"
           />
         </g>
         <g filter="url(#filter20_d_750_6506)">
           <rect
-            x="883"
-            y="190"
-            width="69"
+            fill={getColor("cs_block")}
             height="137"
             rx="10"
-            fill={getColor("cs_block")}
             style={{ transition: "fill 0.3s ease" }}
+            width="69"
+            x="883"
+            y="190"
           />
         </g>
         <g filter="url(#filter21_d_750_6506)">
@@ -383,17 +383,17 @@ export default function InteractiveMap() {
         </g>
         <g filter="url(#filter22_d_750_6506)">
           <rect
-            x="489"
-            y="246"
-            width="428"
+            fill={getColor("cs_block")}
             height="111"
             rx="10"
-            fill={getColor("cs_block")}
             style={{ transition: "fill 0.3s ease" }}
+            width="428"
+            x="489"
+            y="246"
           />
         </g>
         <g filter="url(#filter23_di_750_6506)">
-          <circle cx="703" cy="296" r="45" fill="#535252" />
+          <circle cx="703" cy="296" fill="#535252" r="45" />
         </g>
       </g>
 
@@ -403,4 +403,3 @@ export default function InteractiveMap() {
     </svg>
   );
 }
-
