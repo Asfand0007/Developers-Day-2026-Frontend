@@ -21,7 +21,7 @@ export default function ComingSoon({
   return (
     <section className="min-h-[calc(100vh-5rem)] bg-dark-red text-white flex items-center justify-center px-4 py-16">
       <div className="max-w-xl mx-auto text-center">
-        <div className="inline-block border-2 border-red-primary bg-red-primary/15 px-4 py-2 mb-8">
+        <div className="inline-block border-2 border-red-primary bg-[#D411110D] px-4 py-2 mb-8">
           <p className="text-red-primary text-xs md:text-sm font-mono tracking-wider">
             UNDER_CONSTRUCTION
           </p>
