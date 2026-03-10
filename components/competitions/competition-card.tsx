@@ -39,7 +39,7 @@ export default function CompetitionCard({
         <p className="text-[#CBD5E1] text-sm leading-6 flex-1">{description}</p>
 
         {/* Info Row */}
-        <div className="flex gap-4 w-full">
+        <div className="flex flex-col sm:flex-col gap-4 w-full">
           {/* Team Size */}
           <div className="bg-[#1A1A1A] p-3 w-full border border-[#FFFFFF0D] border-l-2 border-l-[var(--color,#2563EB)] flex flex-col items-baseline gap-2">
             <UserGroupIcon className="w-4 h-4 text-[var(--color,#2563EB)]" />
